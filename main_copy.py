@@ -3,7 +3,10 @@ import datetime
 from moviepy.editor import ImageClip,AudioFileClip,concatenate_audioclips,vfx
 from moviepy.editor import concatenate_videoclips,VideoFileClip,CompositeVideoClip
 
-
+'''
+Still in progress, working on adding a overlay such as snow or rain or leaves.
+Effects performance in a bad way, not recommended.
+'''
 class VideoGenerator:
     def __init__(self,args) -> None:
         if args[1] == '-h':

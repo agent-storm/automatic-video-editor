@@ -1,8 +1,7 @@
 import os,sys
 import datetime
 from moviepy.editor import ImageClip,AudioFileClip,concatenate_audioclips,vfx
-from moviepy.editor import concatenate_videoclips,VideoFileClip,CompositeVideoClip
-
+from moviepy.editor import concatenate_videoclips,VideoFileClip
 
 class VideoGenerator:
     def __init__(self,args) -> None:
@@ -11,12 +10,10 @@ class VideoGenerator:
         self.img = args[1]
         self.music_link = args[2]
         self.aud_mode = args[3]
-        # print("THIS IS AUD_MODE:",self.aud_mode)
         s = str(datetime.datetime.now()).replace(' ','__')
         s = s.replace(':','-')
         self.prsnt_date = s.replace(".","-")
         self.curnt_dir = os.getcwd()
-        self.overlay = VideoFileClip(r"C:\Users\saisr\Downloads\snow_-_15895 (1080p).mp4")
 
     def MusicDownloader(self):
         os.chdir("downloaded_music")
@@ -36,9 +33,9 @@ class VideoGenerator:
         return audio
     
     def VideoCreator(self):
-        if self.aud_mode == '-s':
+        if self.aud_mode == '-spot':
             audio = self.MusicDownloader()
-        elif(self.aud_mode == '-c'):
+        elif(self.aud_mode == '-custom'):
             audio = AudioFileClip(self.music_link)
         elif(self.aud_mode == '-c-short'):
             audio = AudioFileClip(self.music_link)
@@ -52,7 +49,6 @@ class VideoGenerator:
             file_name = os.listdir(os.getcwd())[0]
             print(f"THE AUDIO NAME:{file_name}")
             aud_obj = AudioFileClip(file_name)
-            # aud_obj.write_audiofile("output.mp3")
             n = int(input("Enter no. time to multiply the audio:"))
             audio = concatenate_audioclips([aud_obj]*n)
             os.chdir(self.curnt_dir)
@@ -61,25 +57,17 @@ class VideoGenerator:
         thumbnail = thumbnail.resize((1920,1080))
         thumbnail = thumbnail.set_duration(audio.duration) 
         thumbnail = thumbnail.set_audio(audio)
-        # thumbnail = thumbnail.fx(vfx.colorx, 2.00)
-
-        Outro = VideoFileClip("D:\Projects\AutoEdit\Music_stuff\Thumbnails\Ooutro.mp4").resize(thumbnail.size)
-        # Outro = Outro.resize((1536,864))
-        # self.overlay = self.overlay.set_opacity(0.20)
-        # self.overlay = self.overlay.set_duration(thumbnail.duration)
-        # self.overlay = self.overlay.resize(thumbnail.size)
-        # self.overlay = self.overlay.fx(vfx.colorx, 8.00)
-
-        
-
-        # thumbnail = CompositeVideoClip([thumbnail,self.overlay])
+        os.chdir(self.curnt_dir)
+        Outro_path = os.path.abspath("Assets\Ooutro.mp4")
+        Outro = VideoFileClip(Outro_path).resize(thumbnail.size)
         combined = concatenate_videoclips([thumbnail,Outro])
-        
         final = combined
         final = final.resize((1920,1080))
         os.chdir(f"{self.curnt_dir}\output_files")
         final.write_videofile(f"{self.prsnt_date}.mp4",codec='h264_nvenc',fps = 24)
+
     def ManualPage():
+        # TODO Display a set of instruction to use the tool.
         pass
 
 gen = VideoGenerator(sys.argv)

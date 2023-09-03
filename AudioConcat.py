@@ -1,7 +1,6 @@
 from moviepy.editor import AudioFileClip,concatenate_audioclips
 import sys,os
 
-
 class AudioConcat:
     def __init__(self,args) -> None:
         self.aud_folder = args[1]

@@ -1,1 +1,0 @@
-All the output videos or music is stored in this folder.

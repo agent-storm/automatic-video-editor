@@ -1,1 +1,0 @@
-The downloaded music from spotify is saved in this folder.
