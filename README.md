@@ -15,6 +15,6 @@ To use this tool for you need to have the following modules/library installed in
 ### Options
 - `-spot`   [Spotify]           : Directly download the music and attach the image.
 - `-custom` [Custom/local mp3]  : Use a local music file.
-- `s-short` [Spotify Short]     : A short or single music link that can be multiplied. **Note: Still in progress**
-- `c-short` [Custom Short]      : A Custom or short local music path that can be multiplied.
+- `-s-short` [Spotify Short]     : A short or single music link that can be multiplied. **Note: Still in progress**
+- `-c-short` [Custom Short]      : A Custom or short local music path that can be multiplied.
 
