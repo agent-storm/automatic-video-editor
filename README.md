@@ -13,9 +13,9 @@ To use this tool for you need to have the following modules/library installed in
 
 ## How to use.
 - To run the script use CMD or Windows Power shell
-`> python AutoEditor.py [path to local image] [link to music(spotify)/path to local mp3 file.] [OPTIONS]`
+<br>`> python AutoEditor.py [path to local image] [link to music(spotify)/path to local mp3 file.] [OPTIONS]`</br>
 - To clean the previously used files from *output_files* folder and *downloaded_music* folder.
-`> python cleaner.py`
+<br>`> python cleaner.py`</br>
 
 ### Options
 - `-spot`   [Spotify]           : Directly download the music and attach the image.
