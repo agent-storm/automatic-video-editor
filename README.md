@@ -10,8 +10,13 @@ IMPORTANT:
 To use this tool for you need to have the following modules/library installed in your system.
 - Moviepy - `pip install moviepy`
 - SpotDL  - `pip install spotdl`
+
 ## How to use.
+- To run the script use CMD or Windows Power shell
 `> python AutoEditor.py [path to local image] [link to music(spotify)/path to local mp3 file.] [OPTIONS]`
+- To clean the previously used files from *output_files* folder and *downloaded_music* folder.
+`> python cleaner.py`
+
 ### Options
 - `-spot`   [Spotify]           : Directly download the music and attach the image.
 - `-custom` [Custom/local mp3]  : Use a local music file.
